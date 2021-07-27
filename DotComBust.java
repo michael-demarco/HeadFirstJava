@@ -2,7 +2,7 @@ import java.util.*;
 public class DotComBust {
 	
 	//declare and initialize the variables we'll need 
-	private GameHelper helper = new GameHelper() ();
+	private GameHelper helper = new GameHelper();
 	private ArrayList<DotCom> dotComsList = new ArrayList<DotCom>();
 	private int numOfGuesses = 0;
 	
@@ -27,13 +27,13 @@ public class DotComBust {
 		//repeat with all the DotComs in the list
 		for (DotCom dotComToSet : dotComsList){
 			// ask the helper for a DotCom location
-			ArrayList<String> newLocation = help.placeDotCom(3);
+			ArrayList<String> newLocation = helper.placeDotCom(3);
 			// call the setter method on this DotCom to give it the location you just got from the helper
 			dotComToSet.setLocationCells(newLocation);
 		} // close for loop
 	} //close setUpGame method
 	
-	private void StartPlaying() {
+	private void startPlaying() {
 		// as long as the DotCom list is NOT Empty
 		while(!dotComsList.isEmpty()) {
 			// get user input
@@ -48,10 +48,10 @@ public class DotComBust {
 		// increment the number of guesses the user has made
 		numOfGuesses++;
 		// assume it's a 'miss,' unless told otherwise
-		string result = "miss";
+		String result = "miss";
 		
 		// repeat with all the DotComs in the list
-		for (DotCom dotComToTest : dotComList) {
+		for (DotCom dotComToTest : dotComsList) {
 			// ask the DotCom to check the user guess, looking for a hit (or kill)
 			result = dotComToTest.checkYourself(userGuess);
 			if (result.equals("hit")) {
